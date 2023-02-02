@@ -12,6 +12,41 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>React App</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      const labelsBarChart = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+      ];
+      const dataBarChart = {
+        labels: labelsBarChart,
+        datasets: [
+          {
+            label: "My First dataset",
+            backgroundColor: "hsl(252, 82.9%, 67.8%)",
+            borderColor: "hsl(252, 82.9%, 67.8%)",
+            data: [0, 10, 5, 2, 20, 30, 45],
+          },
+        ],
+      };
+    
+      const configBarChart = {
+        type: "bar",
+        data: dataBarChart,
+        options: {},
+      };
+    
+      var chartBar = new Chart(
+        document.getElementById("chartBar"),
+        configBarChart
+      );
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
