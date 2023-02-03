@@ -1,4 +1,4 @@
-const LandingPageFooter = () => {
+const UserFooter = () => {
     return (
         <>
             <div>
@@ -53,4 +53,4 @@ const LandingPageFooter = () => {
     );
 }
 
-export default LandingPageFooter;
+export default UserFooter;

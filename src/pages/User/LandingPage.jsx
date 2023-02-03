@@ -1,5 +1,5 @@
 import LandingPageBody from "../../components/User/LandingPageBody";
-import LandingPageFooter from "../../components/User/LandingPageFooter";
+import UserFooter from "../../components/User/UserFooter";
 import UserHeader from "../../components/User/UserHeader";
 
 function LandingPage() {
@@ -7,7 +7,7 @@ function LandingPage() {
         <>
             <UserHeader />
             <LandingPageBody />
-            <LandingPageFooter />
+            <UserFooter />
         </>
     );
 }
