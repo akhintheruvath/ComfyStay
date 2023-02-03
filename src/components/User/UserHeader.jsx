@@ -1,4 +1,35 @@
+import React, { useState } from "react";
+
 function NavbarUser() {
+    const [showModal, setShowModal] = useState(false);
+    const [showOtpModal,setShowOtpModal] = useState(false);
+    const [inputValue,setInputValue] = useState('');
+    const [errorMessage,setErrorMessage] = useState('');
+
+    const handleShowModal = () => {
+        setShowModal(!showModal);
+        setInputValue('');
+        setErrorMessage('');
+    };
+
+    const onSubmit = (e) => {
+        let len = inputValue.length;
+        e.preventDefault();
+        if(inputValue==''||len<10){
+            setErrorMessage('Enter your 10 digit phone number first');
+        }else{
+            setShowModal(!showModal);
+            setShowOtpModal(!showOtpModal);
+        }
+    };
+
+    const closeOtpModal = (e) => {
+        setShowOtpModal(!showOtpModal);
+    }
+
+    const handleValue = (e) => {
+        setInputValue(e.target.value);
+    }
     return (
         <div>
             <nav class="bg-white border-gray-500 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
@@ -35,7 +66,7 @@ function NavbarUser() {
                                 <a href="#" class="block md:text-lg py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Add Your Home</a>
                             </li>
                             <li>
-                                <a href="#" class="block md:text-lg py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
+                                <button onClick={handleShowModal} href="#" class="block py-2 pl-3 pr-4 md:text-lg text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</button>
                             </li>
                             <li>
                                 <a href="#" class="block md:text-lg py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Wishlists</a>
@@ -44,6 +75,44 @@ function NavbarUser() {
                     </div>
                 </div>
             </nav>
+            <div>
+                {showModal && (
+                    <div className="fixed px-4 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 mt-8">
+                        <div className="mx-auto my-20 max-w-sm bg-white p-10 rounded-lg">
+                            <form>
+                                <h2 className="text-lg font-medium mb-4">Log in OR Sign up</h2>
+                                <div className="mb-4">
+                                    <label className="block mb-2 text-sm font-medium text-gray-700">Enter your phone number</label>
+                                    <input type="number" value={inputValue} onChange={handleValue} className="w-full border border-gray-400 p-2 rounded-lg" />
+                                    {errorMessage&&<p className="text-red-500">{errorMessage}</p>}
+                                </div>
+                                <div className="flex justify-between">
+                                    <button className="bg-gray-400 text-gray-700 py-2 px-4 rounded-full" onClick={handleShowModal}>Cancel</button>
+                                    <button className="bg-blue-500 text-white py-2 px-4 rounded-full" type="submit" onClick={onSubmit} >Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                )}
+            </div>
+            <div>
+                {showOtpModal && (
+                    <div className="fixed px-4 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 mt-8">
+                        <div className="mx-auto my-20 max-w-sm bg-white p-10 rounded-lg">
+                            <form>
+                                <h2 className="text-lg font-medium mb-4">Submit OTP</h2>
+                                <div className="mb-4">
+                                    <input placeholder="Enter the OTP" type="number" className="w-full border border-gray-400 p-2 rounded-lg" required />
+                                </div>
+                                <div className="flex justify-between">
+                                    <button className="bg-gray-400 text-gray-700 py-2 px-4 rounded-full" onClick={closeOtpModal}>Cancel</button>
+                                    <button className="bg-blue-500 text-white py-2 px-4 rounded-full" type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
