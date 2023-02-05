@@ -2,7 +2,7 @@ import React from 'react';
 
 function AdminLogin() {
     return (
-        <div>
+        <>
             <section className="bg-gray-50 dark:bg-gray-600">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
                     <a href="#" className="flex items-center mb-6 text-4xl font-bold text-gray-900 dark:text-white">
@@ -31,7 +31,7 @@ function AdminLogin() {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }
 

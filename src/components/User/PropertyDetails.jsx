@@ -9,10 +9,10 @@ function PropertyDetails() {
     <div className='px-2 md:px-4'>
       <div className='container'>
         <div>
-          <p className='text-xl md:text-3xl lg:text-4xl md:py-3 font-semibold mt-2'>Veluvana Bali - Owl Bamboo House</p>
+          <p className='text-xl md:text-3xl lg:text-4xl md:py-3 font-serif mt-2'>Veluvana Bali - Owl Bamboo House</p>
           <div className='py-3 md:py-4 sm:flex gap-3'>
             <div className='sm:w-1/2 mb-3'>
-              <img className='h-auto w-full sm:rounded-l-xl sm:rounded-r-none rounded-md' src="https://a0.muscache.com/im/pictures/4f70b681-a792-4530-8c52-f2a8d262942d.jpg?im_w=1200" alt="PlaceImage" />
+              <img className='h-auto w-full sm:rounded-l-xl sm:rounded-r-none rounded-md' src="https://a0.muscache.com/im/pictures/37027874/c4247a94_original.jpg?im_w=720" alt="PlaceImage" />
             </div>
             <div className='sm:w-1/2 flex gap-3'>
               <div>

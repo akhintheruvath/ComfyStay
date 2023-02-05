@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function NavbarUser() {
+function UserHeader() {
     const [showModal, setShowModal] = useState(false);
     const [showOtpModal,setShowOtpModal] = useState(false);
     const [inputValue,setInputValue] = useState('');
     const [errorMessage,setErrorMessage] = useState('');
+    const navigate = useNavigate();
+    const gotoWishlistsPage = () => {
+        navigate('/wishlistPage');
+    }
 
     const handleShowModal = () => {
         setShowModal(!showModal);
@@ -35,7 +40,7 @@ function NavbarUser() {
             <nav class="bg-white border-gray-500 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
                 <div class="container flex flex-wrap items-center justify-between mx-auto">
                     <a href="#" class="flex items-center">
-                        <span class="self-center text-xl md:text-4xl font-semibold whitespace-nowrap dark:text-white">COMFYSTAY</span>
+                        <span class="self-center text-xl md:text-4xl font-medium whitespace-nowrap dark:text-white font-mono">COMFYSTAY</span>
                     </a>
                     <div class="flex md:order-2">
                         <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1" >
@@ -69,7 +74,7 @@ function NavbarUser() {
                                 <button onClick={handleShowModal} href="#" class="block py-2 pl-3 pr-4 md:text-lg text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</button>
                             </li>
                             <li>
-                                <a href="#" class="block md:text-lg py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Wishlists</a>
+                            <button onClick={gotoWishlistsPage} href="#" class="block py-2 pl-3 pr-4 md:text-lg text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Wishlists</button>
                             </li>
                         </ul>
                     </div>
@@ -83,12 +88,12 @@ function NavbarUser() {
                                 <h2 className="text-lg font-medium mb-4">Log in OR Sign up</h2>
                                 <div className="mb-4">
                                     <label className="block mb-2 text-sm font-medium text-gray-700">Enter your phone number</label>
-                                    <input type="number" value={inputValue} onChange={handleValue} className="w-full border border-gray-400 p-2 rounded-lg" />
+                                    <input type="number" value={inputValue} onChange={handleValue} placeholder="9876543210" className="w-full border border-gray-400 p-2 rounded-lg" />
                                     {errorMessage&&<p className="text-red-500">{errorMessage}</p>}
                                 </div>
                                 <div className="flex justify-between">
                                     <button className="bg-gray-400 text-gray-700 py-2 px-4 rounded-full" onClick={handleShowModal}>Cancel</button>
-                                    <button className="bg-blue-500 text-white py-2 px-4 rounded-full" type="submit" onClick={onSubmit} >Submit</button>
+                                    <button className="bg-blue-500 text-white py-2 px-4 rounded-full" type="button" onClick={onSubmit} >Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -117,4 +122,4 @@ function NavbarUser() {
     );
 }
 
-export default NavbarUser;
+export default UserHeader;
