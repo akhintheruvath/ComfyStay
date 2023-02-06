@@ -7,6 +7,7 @@ import WishListPage from './pages/User/WishListPage';
 import UserProfilePage from './pages/User/UserProfilePage';
 import TripsPage from './pages/User/TripsPage';
 import TripConfirmationPage from './pages/User/TripConfirmationPage';
+import PropertiesListPage from './pages/User/PropertiesListPage';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/profile' element={<UserProfilePage />} />
         <Route path='/adminLogin' element={<AdminLogin />} />
         <Route path='/admin' element={<AdminHome />} />
+        <Route path='/myProperties' element={<PropertiesListPage />} />
       </Routes>
     </BrowserRouter>
   );
