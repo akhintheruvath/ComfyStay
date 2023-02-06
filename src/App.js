@@ -8,6 +8,8 @@ import UserProfilePage from './pages/User/UserProfilePage';
 import TripsPage from './pages/User/TripsPage';
 import TripConfirmationPage from './pages/User/TripConfirmationPage';
 import PropertiesListPage from './pages/User/PropertiesListPage';
+import EditPropertyPage from './pages/User/EditPropertyPage';
+import CustomersListPage from './pages/Admin/CustomersListPage';
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
         <Route path='/adminLogin' element={<AdminLogin />} />
         <Route path='/admin' element={<AdminHome />} />
         <Route path='/myProperties' element={<PropertiesListPage />} />
+        <Route path='/myProperties/editProperty' element={<EditPropertyPage />} />
+        <Route path='/admin/customersList' element={<CustomersListPage />} />
       </Routes>
     </BrowserRouter>
   );

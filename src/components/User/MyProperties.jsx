@@ -1,6 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function MyProperties() {
+    const navigate = useNavigate();
+    const gotoEditPropertyPage = () => {
+        navigate('/myProperties/editProperty');
+    }
     return (
         <div>
             <div className="container">
@@ -32,7 +37,7 @@ function MyProperties() {
                                         LOCATION
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        <span class="sr-only">Edit</span>
+                                        <span  class="sr-only">Edit</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -60,7 +65,7 @@ function MyProperties() {
                                         Kozhikode, India
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                        <button onClick={gotoEditPropertyPage} class="font-medium text-blue-600 hover:underline">Edit</button>
                                     </td>
                                 </tr>
                                 <tr class="bg-white border-b  border-gray-700 hover:bg-gray-200 ">
