@@ -7,12 +7,9 @@ function EditProperty() {
     const [guestsCount, setGuestsCount] = useState(1);
     const [title, setTitle] = useState("Initial Value");
     const [titleEditable, setTitleEditable] = useState(false);
-    let propertyTitle;
 
     const handleEditClick = () => {
         setTitleEditable(true);
-        propertyTitle = title;
-        console.log(propertyTitle);
     };
 
     const handleSaveClick = () => {
@@ -20,9 +17,6 @@ function EditProperty() {
     };
 
     const handleCancelClick = () => {
-        console.log(propertyTitle);
-        setTitle(propertyTitle);
-        console.log(title);
         setTitleEditable(false);
     };
 
@@ -62,6 +56,13 @@ function EditProperty() {
                                 {imageEditButton && <button className='underline'>Edit</button>}
                             </div>
                         </div>
+                    </div>
+                    <div className='lg:w-2/3'>
+                    <p className='text-2xl font-medium my-3'>Price</p>
+                    <div className='flex justify-between'>
+                        <div><p className='text-lg font-medium'>₹20000</p></div>
+                        <div><button className='text-lg my-3 underline'>Edit</button></div>
+                    </div>
                     </div>
                     <div className='lg:w-2/3'>
                         <p className='text-2xl font-medium my-3'>Property basics</p>

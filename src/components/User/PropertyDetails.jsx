@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { MdiLightAccount, TablerDeviceTablet, TablerToolsKitchen, TablerWifi } from '../../icons';
+import { useNavigate } from 'react-router-dom';
 
 function PropertyDetails() {
   const [checkInDate, setCheckInDate] = useState('');
   const [checkOutDate, setCheckOutDate] = useState('');
   const [numGuests, setNumGuests] = useState(1);
+  const navigate = useNavigate();
+  const gotoBookingPage = () => {
+    navigate('/propertyPage/tripBooking');
+  }
   return (
     <div className='px-2 md:px-4'>
       <div className='container'>
@@ -107,7 +112,7 @@ function PropertyDetails() {
                     required
                   />
                 </div>
-                <button className='text-2xl sm:text-3xl py-2 font-medium font-serif text-white bg-slate-800 rounded-md'>Reserve</button>
+                <button onClick={gotoBookingPage} className='text-2xl sm:text-3xl py-2 font-medium font-serif text-white bg-slate-800 rounded-md'>Reserve</button>
                 <p className='flex justify-center text-xl sm:text-2xl font-semibold'>Total - ₹20,227</p>
               </div>
             </form>
